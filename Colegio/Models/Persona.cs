@@ -22,7 +22,7 @@ namespace Colegio.Models
             set { _segundoApellido = value; }
         }
 
-        public string NombreCompleto
+        public virtual string NombreCompleto
         {
             get
             {

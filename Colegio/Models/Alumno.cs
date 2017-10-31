@@ -18,7 +18,10 @@ namespace Colegio.Models
 
         public override string CrearResumen()
         {
-            return $"{Nombre} {Apellido} - {Grupo}";
+            return $"{NombreCompleto} - {Grupo}";
         }
+
+        public override string NombreCompleto =>
+            "El Alumno es: " + base.NombreCompleto.ToUpper();
     }
 }

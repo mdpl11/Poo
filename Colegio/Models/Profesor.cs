@@ -12,7 +12,7 @@ namespace Colegio.Models
 
         public override string CrearResumen()
         {
-            return $"{Nombre} {Apellido} - {Catedra}";
+            return $"{NombreCompleto} - {Catedra}";
         }
     }
 }
