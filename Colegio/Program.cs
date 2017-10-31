@@ -13,12 +13,13 @@ namespace Colegio
         {
             Console.WriteLine("Gestión del Colegio");
 
-            Alumno alumno = new Alumno
+            Alumno alumno = new Alumno("Miguel", "Pelaez")
             {
                 Id = 1,
-                Nombre = "Miguel",
-                Apellido = "Pelaez",
-                Grupo = "11C"
+                //Nombre = "Miguel",
+                //Apellido = "Pelaez",
+                Grupo = "11C",
+                SegundoApellido = "Lopez"
             };
 
             Console.WriteLine($"El alumno es: {alumno.NombreCompleto}");

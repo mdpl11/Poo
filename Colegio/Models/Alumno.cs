@@ -9,5 +9,11 @@ namespace Colegio.Models
     public class Alumno : Persona
     {
         public string Grupo { get; set; }
+
+        public Alumno(string nombre, string apellido)
+        {
+            Nombre = nombre;
+            Apellido = apellido;
+        }
     }
 }
