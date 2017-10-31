@@ -21,14 +21,33 @@ namespace Colegio
                 Grupo = "11C"
             };
 
-            Persona persona = new Persona()
+            Console.WriteLine($"El alumno es: {alumno.NombreCompleto}");
+
+            Persona persona = new Persona
             {
                 Id = 1,
                 Nombre = "Carlos",
                 Apellido = "Sanjuan"
             };
 
-            Console.WriteLine($"El alumno es: {alumno.NombreCompleto}");
+            #region Conversiones
+
+            Persona persona1 = alumno;
+
+            //No permitido
+            //Alumno alumno1 = persona;
+
+            Console.WriteLine($"La persona es de tipo {persona1.GetType()} ");
+
+            #endregion Conversiones
+
+            Profesor profesor = new Profesor
+            {
+                Id = 1,
+                Nombre = "Miguel",
+                Apellido = "Pelaez",
+                Catedra = ".NET Básico"
+            };
 
             Console.ReadLine();
         }
