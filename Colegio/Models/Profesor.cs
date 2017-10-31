@@ -9,5 +9,10 @@ namespace Colegio.Models
     public class Profesor : Persona
     {
         public string Catedra { get; set; }
+
+        public override string CrearResumen()
+        {
+            return $"{Nombre} {Apellido} - {Catedra}";
+        }
     }
 }

@@ -15,5 +15,10 @@ namespace Colegio.Models
             Nombre = nombre;
             Apellido = apellido;
         }
+
+        public override string CrearResumen()
+        {
+            return $"{Nombre} {Apellido} - {Grupo}";
+        }
     }
 }

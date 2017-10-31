@@ -13,6 +13,10 @@ namespace Colegio
         {
             Console.WriteLine("Gestión del Colegio");
 
+            #region Encapsulamiento
+
+            Console.WriteLine("");
+            Console.WriteLine("=========================ENCAPSULAMIENTO==============================");
             Alumno alumno = new Alumno("Miguel", "Pelaez")
             {
                 Id = 1,
@@ -24,14 +28,19 @@ namespace Colegio
 
             Console.WriteLine($"El alumno es: {alumno.NombreCompleto}");
 
-            Persona persona = new Persona
-            {
-                Id = 1,
-                Nombre = "Carlos",
-                Apellido = "Sanjuan"
-            };
+            //Persona persona = new Persona
+            //{
+            //    Id = 1,
+            //    Nombre = "Carlos",
+            //    Apellido = "Sanjuan"
+            //};
+
+            #endregion Encapsulamiento
 
             #region Conversiones
+
+            Console.WriteLine("");
+            Console.WriteLine("=========================CONVERSIONES==============================");
 
             Persona persona1 = alumno;
 
@@ -39,6 +48,7 @@ namespace Colegio
             //Alumno alumno1 = persona;
 
             Console.WriteLine($"La persona es de tipo {persona1.GetType()} ");
+            Console.WriteLine("");
 
             #endregion Conversiones
 
@@ -52,6 +62,9 @@ namespace Colegio
 
             #region Polimorfismo
 
+            Console.WriteLine("");
+            Console.WriteLine("=========================POLIMORFISMO==============================");
+
             string informacionAlumno = ObtenerInformacionAlumno(alumno.Nombre);
             string informacionAlumno2 = ObtenerInformacionAlumno(alumno.Nombre, alumno.Apellido);
             string informacionAlumno3 = ObtenerInformacionAlumno(alumno.Nombre, alumno.Apellido, alumno.SegundoApellido);
@@ -61,6 +74,35 @@ namespace Colegio
             Console.WriteLine(informacionAlumno3);
 
             #endregion Polimorfismo
+
+            #region Clases Abstractas
+
+            Console.WriteLine("");
+            Console.WriteLine("=========================CLASES ABSTRACTAS==============================");
+
+            Console.WriteLine($"Resumen Alumno: {alumno.CrearResumen()}");
+            Console.WriteLine($"Resumen Profesor: {profesor.CrearResumen()}");
+
+            //Imprimir multiples resúmenes
+            List<Persona> personas = new List<Persona>
+            {
+                new Alumno("Miguel", "Pelaez") { Id = 1, Grupo= "11C" },
+                new Alumno("Carlos", "Restrepo") { Id = 2, Grupo = "11C" },
+                new Alumno("Cristiva", "Jaramillo") { Id=3, Grupo ="11B"  },
+                new Profesor { Id = 4, Nombre = "Carlos", Apellido ="Sanjuan", Catedra =".NET Básico"  },
+                new Profesor { Id= 5, Nombre="Juan", Apellido="Gonzalez", Catedra = "Java Básico" }
+            };
+
+            Console.WriteLine("");
+            Console.WriteLine($"Resumenes de Personas:");
+            foreach (Persona persona in personas)
+            {
+                Console.WriteLine("");
+                Console.WriteLine(persona.GetType());
+                Console.WriteLine(persona.CrearResumen());
+            }
+
+            #endregion Clases Abstractas
 
             Console.ReadLine();
         }
