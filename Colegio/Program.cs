@@ -50,7 +50,34 @@ namespace Colegio
                 Catedra = ".NET Básico"
             };
 
+            #region Polimorfismo
+
+            string informacionAlumno = ObtenerInformacionAlumno(alumno.Nombre);
+            string informacionAlumno2 = ObtenerInformacionAlumno(alumno.Nombre, alumno.Apellido);
+            string informacionAlumno3 = ObtenerInformacionAlumno(alumno.Nombre, alumno.Apellido, alumno.SegundoApellido);
+
+            Console.WriteLine(informacionAlumno);
+            Console.WriteLine(informacionAlumno2);
+            Console.WriteLine(informacionAlumno3);
+
+            #endregion Polimorfismo
+
             Console.ReadLine();
+        }
+
+        public static string ObtenerInformacionAlumno(string nombre)
+        {
+            return $"Nombre: {nombre}";
+        }
+
+        public static string ObtenerInformacionAlumno(string nombre, string apellido)
+        {
+            return $"Nombre: {nombre} - Apellido: {apellido}";
+        }
+
+        public static string ObtenerInformacionAlumno(string nombre, string apellido, string segundoApellido)
+        {
+            return $"Nombre: {nombre} - Apellido: {apellido} - Segundo Apellido {segundoApellido} ";
         }
     }
 }
