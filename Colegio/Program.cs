@@ -104,6 +104,68 @@ namespace Colegio
 
             #endregion Clases Abstractas
 
+            #region Ciclos
+
+            Console.WriteLine("");
+            Console.WriteLine("=========================Ciclos==============================");
+
+            Console.WriteLine("-------------------------");
+            Console.WriteLine("do - While");
+
+            int valorInicial = 0;
+            int valorFinal = 5;
+
+            // Se ejecuta 1 o varias veces
+            do
+            {
+                Console.WriteLine(valorInicial);
+                valorInicial++;
+            } while (valorInicial < valorFinal);
+
+            Console.WriteLine("-------------------------");
+            Console.WriteLine("While");
+
+            valorInicial = 0;
+            valorFinal = 5;
+
+            // Se ejecuta 0 o varias veces
+            while (valorInicial < valorFinal)
+            {
+                Console.WriteLine(valorInicial);
+                valorInicial++;
+            }
+
+            Console.WriteLine("-------------------------");
+            Console.WriteLine("For");
+
+            // Se ejecuta 0 o varias veces
+            for (int inicio = 0; valorInicial <= 5; valorInicial++)
+            {
+                Console.WriteLine(inicio);
+            }
+
+            Console.WriteLine("-------------------------");
+            Console.WriteLine("For con objetos");
+
+            string[] paises = { "Argentina", "Bolivia", "Peru", "Chile", "Colombia" };
+
+            // Se ejecuta 0 o varias veces
+            for (int posicion = 0; posicion <= paises.Length; posicion++)
+            {
+                Console.WriteLine(paises[posicion]);
+            }
+
+            Console.WriteLine("-------------------------");
+            Console.WriteLine("Foreach");
+
+            // Se ejecuta 0 o varias veces
+            foreach (string pais in paises)
+            {
+                Console.WriteLine(pais);
+            }
+
+            #endregion Ciclos
+
             Console.ReadLine();
         }
 
