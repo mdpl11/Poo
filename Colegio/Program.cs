@@ -139,7 +139,7 @@ namespace Colegio
             Console.WriteLine("For");
 
             // Se ejecuta 0 o varias veces
-            for (int inicio = 0; valorInicial <= 5; valorInicial++)
+            for (int inicio = 0; inicio <= 5; inicio++)
             {
                 Console.WriteLine(inicio);
             }
@@ -150,7 +150,7 @@ namespace Colegio
             string[] paises = { "Argentina", "Bolivia", "Peru", "Chile", "Colombia" };
 
             // Se ejecuta 0 o varias veces
-            for (int posicion = 0; posicion <= paises.Length; posicion++)
+            for (int posicion = 0; posicion <= paises.Length - 1; posicion++)
             {
                 Console.WriteLine(paises[posicion]);
             }
@@ -165,6 +165,54 @@ namespace Colegio
             }
 
             #endregion Ciclos
+
+            #region Colecciones
+
+            Console.WriteLine("");
+            Console.WriteLine("=========================Colecciones==============================");
+
+            Console.WriteLine("-------------------------");
+            Console.WriteLine("Dictionary");
+
+            Dictionary<int, string> materias = new Dictionary<int, string>();
+
+            materias.Add(54, "Matematicas");
+            materias.Add(48, "Fisica");
+            materias.Add(51, "Ingles");
+            materias.Add(56, "Calculo");
+
+            foreach (KeyValuePair<int, string> materia in materias)
+            {
+                Console.WriteLine("La materia " + materia.Key + " tiene el código " + materia.Value);
+            }
+
+            Console.WriteLine("-------------------------");
+            Console.WriteLine("Listas");
+
+            var listaPaises = new List<string> { "Argentina", "Bolivia", "Peru", "Chile", "Colombia" };
+            listaPaises.Add("Brasil");
+
+            foreach (var pais in paises)
+            {
+                Console.WriteLine(pais);
+            }
+
+            Console.WriteLine("-------------------------");
+            Console.WriteLine("Listas con objetos complejos");
+
+            List<Profesor> profesores = new List<Profesor>
+            {
+                new Profesor { Nombre = "Miguel", Apellido = "Peláez" },
+                new Profesor { Nombre = "Juan", Apellido = "Perez" },
+                new Profesor { Nombre = "Claudia", Apellido = "Jimenez" }
+            };
+
+            foreach (var pais in paises)
+            {
+                Console.WriteLine("El profesor se llama " + profesor.NombreCompleto);
+            }
+
+            #endregion Colecciones
 
             Console.ReadLine();
         }
