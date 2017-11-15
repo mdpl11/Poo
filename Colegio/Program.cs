@@ -1,6 +1,7 @@
 ﻿using Colegio.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -213,6 +214,78 @@ namespace Colegio
             }
 
             #endregion Colecciones
+
+            #region Archivos
+
+            string ruta = @"d:\Archivos\Archivo.txt";
+
+            //Crear Archivo
+            Console.WriteLine("Creando Archivo....");
+            Console.WriteLine("");
+            using (StreamWriter escribir = File.CreateText(ruta))
+            {
+                escribir.WriteLine("Mi nombre  es Miguel");
+                escribir.WriteLine("Mi apellido  es Peláez");
+            }
+
+            //Si el archivo existe imprimir en consola el contenido.
+            Console.WriteLine("Leyendo Archivo....");
+            Console.WriteLine("");
+            if (File.Exists(ruta))
+            {
+                using (StreamReader lectura = File.OpenText(ruta))
+                {
+                    string texto;
+
+                    while ((texto = lectura.ReadLine()) != null)
+                    {
+                        Console.WriteLine(texto);
+                    }
+                }
+
+                Console.WriteLine("El total de archivos en la carpeta destino es : "
+                  + Directory.GetFiles(@"d:\Archivos").Length);
+            }
+
+            //Administrar Directorios y mover archivo
+            string origen = ruta;
+            string destino = @"D:\Archivos\Destino";
+
+            DirectoryInfo directorioOrigen = new DirectoryInfo(origen);
+            DirectoryInfo directorioDestino = new DirectoryInfo(destino);
+
+            try
+            {
+                if (!directorioDestino.Exists)
+                {
+                    directorioDestino.Create();
+                }
+
+                directorioOrigen.MoveTo(destino + @"\Archivo1.txt");
+
+                FileInfo[] archivos = directorioDestino.GetFiles();
+
+                foreach (FileInfo infoArchivo in archivos)
+                {
+                    Console.WriteLine(infoArchivo.Name);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+            }
+
+            //Clase Path
+            if (Path.HasExtension(@"D:\Archivos\Destino\Archivo1.txt"))
+            {
+                Console.WriteLine("El archivo tiene extensión");
+            }
+
+            Console.WriteLine("Ruta temporal " + Path.GetTempPath() + " Archivo temporal" + Path.GetTempFileName());
+
+            Console.WriteLine("Nombre carpeta " + Path.GetDirectoryName(@"D:\Archivos\Destino\Archivo1.txt"));
+
+            #endregion Archivos
 
             Console.ReadLine();
         }
